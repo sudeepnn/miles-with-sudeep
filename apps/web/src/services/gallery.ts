@@ -3,7 +3,11 @@ import type {
   PaginatedPhotos
 } from "../types/gallery";
 
-const API = "/api/gallery";
+const API_BASE_URL = (
+  import.meta.env.VITE_API_URL ?? ""
+).replace(/\/$/, "");
+
+const API = `${API_BASE_URL}/api/gallery`;
 
 
 
