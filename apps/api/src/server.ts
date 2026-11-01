@@ -6,9 +6,16 @@ import galleryRoutes from "./routes/gallery.routes.js";
 
 const app = express();
 
-app.use(cors({
-  origin: process.env.FRONTEND_URL || "http://localhost:5173"
-}));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://miles-with-sudeep.vercel.app",
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+  })
+);
 
 app.use(express.json());
 
