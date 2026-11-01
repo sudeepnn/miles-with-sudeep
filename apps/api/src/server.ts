@@ -41,8 +41,14 @@ app.use((
   });
 });
 
-const PORT = Number(process.env.PORT) || 5000;
+export default app;
 
-app.listen(PORT, () => {
-  console.log(`API running at http://localhost:${PORT}`);
-});
+// Run a local server during development.
+// Vercel imports the Express app as a serverless function.
+if (!process.env.VERCEL) {
+  const PORT = Number(process.env.PORT) || 5000;
+
+  app.listen(PORT, () => {
+    console.log(`API running at http://localhost:${PORT}`);
+  });
+}
