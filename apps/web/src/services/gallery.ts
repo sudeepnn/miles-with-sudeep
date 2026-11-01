@@ -1,6 +1,5 @@
 import type {
   Album,
-  Photo,
   PaginatedPhotos
 } from "../types/gallery";
 
